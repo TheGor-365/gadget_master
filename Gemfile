@@ -23,7 +23,7 @@ gem 'geocoder'
 gem 'sendgrid-ruby'
 gem 'mailcatcher'
 gem 'inherited_resources'
-gem 'rails_admin'
+gem 'rails_admin', git: 'https://github.com/sferik/rails_admin.git'
 
 group :development, :test do
   gem 'shoulda-matchers'

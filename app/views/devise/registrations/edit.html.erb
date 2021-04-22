@@ -13,6 +13,25 @@
             <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
             <% end %>
 
+            <div class="form-group mt-4">
+              <%= f.label 'Choose your role' %>
+            </div>
+
+            <hr>
+            <div class="form-group">
+              <%= f.check_box :customer, class: 'mr-3' %>
+              <%= f.label :customer, class: 'mr-3 text-muted' %>
+              <i class="fas fa-mobile-alt text-muted"></i>
+            </div>
+            <hr>
+
+            <div class="form-group">
+              <%= f.check_box :master, class: 'mr-3' %>
+              <%= f.label :master, class: 'mr-3 text-muted' %>
+              <i class="fas fa-tools text-muted"></i>
+            </div>
+            <hr>
+
             <div class="form-group">
               <%= f.label :email %>
               <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
@@ -42,7 +61,7 @@
             </div>
 
             <div class="form-group">
-              <%= f.submit "Update", class: 'btn btn-success btn-sm' %>
+              <%= f.submit "Update", class: 'btn btn-success btn-sm mt-3' %>
             </div>
           <% end %>
         </div>
