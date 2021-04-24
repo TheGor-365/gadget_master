@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_22_200813) do
+ActiveRecord::Schema.define(version: 2021_04_24_215844) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,30 @@ ActiveRecord::Schema.define(version: 2021_04_22_200813) do
     t.string "brand"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "laptops", force: :cascade do |t|
+    t.bigint "gadget_id", null: false
+    t.string "model"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["gadget_id"], name: "index_laptops_on_gadget_id"
+  end
+
+  create_table "planshets", force: :cascade do |t|
+    t.bigint "gadget_id", null: false
+    t.string "model"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["gadget_id"], name: "index_planshets_on_gadget_id"
+  end
+
+  create_table "smartphones", force: :cascade do |t|
+    t.bigint "gadget_id", null: false
+    t.string "model"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["gadget_id"], name: "index_smartphones_on_gadget_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -50,4 +74,7 @@ ActiveRecord::Schema.define(version: 2021_04_22_200813) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "laptops", "gadgets"
+  add_foreign_key "planshets", "gadgets"
+  add_foreign_key "smartphones", "gadgets"
 end

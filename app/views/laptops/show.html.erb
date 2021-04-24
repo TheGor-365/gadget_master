@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Gadget:</strong>
+  <%= @laptop.gadget_id %>
+</p>
+
+<p>
+  <strong>Model:</strong>
+  <%= @laptop.model %>
+</p>
+
+<%= link_to 'Edit', edit_laptop_path(@laptop) %> |
+<%= link_to 'Back', laptops_path %>

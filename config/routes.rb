@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  resources :laptops
+  resources :planshets
+  resources :smartphones
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
   root to: 'pages#home'
