@@ -12,6 +12,24 @@
   <% end %>
 
   <div class="actions">
-    <%= form.submit %>
+    <div class="form-check mb-3">
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <label class="input-group-text" for="select_gadget">Select Gadget</label>
+        </div>
+        <select class="custom-select" id="select_gadget">
+          <% (Gadget::TYPE).each do |type| %>
+          <option value="<%= type %>"><%= type %></option>
+          <% end %>
+        </select>
+      </div>
+    </div>
+
+    <div class="col-8 mb-3">
+      <%= form.label :brand, class: "form-label" %>
+      <%= form.text_field :brand, rows: 3, placeholder: "Enter brand name...", class: "form-control" %>
+    </div>
+
+    <%= form.submit class: 'btn btn-sm btn-success' %>
   </div>
 <% end %>
